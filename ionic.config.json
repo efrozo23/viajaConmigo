@@ -1,0 +1,7 @@
+{
+  "name": "viajaConmigo",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
