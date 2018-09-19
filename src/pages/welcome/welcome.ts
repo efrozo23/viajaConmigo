@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the WelcomePage page.
@@ -15,7 +16,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class WelcomePage {
 
+  private username: String;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    if (!localStorage.getItem("userLogin")) {
+      navCtrl.setRoot(HomePage)
+    }
+    this.username = localStorage.getItem("userLogin");
   }
 
   ionViewDidLoad() {

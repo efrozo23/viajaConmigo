@@ -1,9 +1,11 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoginModel } from '../../Model/LoginModel';
-import {Http,Response,Headers,RequestOptions} from '@angular/http';
+
+import { Observable } from 'rxjs';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { User } from '../../Model/User';
-import { IfObservable } from 'rxjs/observable/IfObservable';
+
 
 /*
   Generated class for the LoginServiceProvider provider.
@@ -14,16 +16,17 @@ import { IfObservable } from 'rxjs/observable/IfObservable';
 @Injectable()
 export class LoginServiceProvider {
 
-  private BASE_URL :string = "https://bgdpxps9e2.execute-api.us-east-1.amazonaws.com/Prod/api/" ;
-  private headers = new Headers({'Content-Type':'application/json'});
+  private BASE_URL: string = "https://bgdpxps9e2.execute-api.us-east-1.amazonaws.com/Prod/api/";
+
+  private header:HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json;charset=utf-8')
+  
 
   constructor(public http: HttpClient) {
     console.log('Hello LoginServiceProvider Provider');
   }
 
-  login(loginModule: LoginModel):Observable<User>{
-    console.log("Ingreso al servicio");
-    return this.http.post(this.BASE_URL+"Authorization",loginModule);
+  login(loginModule: LoginModel):Observable<User> {
+    return this.http.post<User>(this.BASE_URL, loginModule, {headers : this.header});
   }
 
 }

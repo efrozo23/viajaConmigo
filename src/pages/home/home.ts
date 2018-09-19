@@ -5,29 +5,43 @@ import { LoginModel } from '../../Model/LoginModel';
 import { LoginServiceProvider } from '../../providers/login-service/login-service';
 import { User } from '../../Model/User';
 
+import { WelcomePage } from '../welcome/welcome';
+
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
-  providers:[LoginServiceProvider]
+  providers: [LoginServiceProvider]
 })
 export class HomePage {
 
-  private username: String = "elrozoor";
-  private password: String= "12143234";
-  private userLogin : LoginModel;
+  private username: String = "";
+  private password: String = "";
+  private message: String ="";
+  //private userLogin: LoginModel = new LoginModel();
   private user: User;
 
-  constructor(public navCtrl: NavController, public loginService : LoginServiceProvider) {
-    this.userLogin.access = "loginData";
-    this.userLogin.valuesBase64 = "Z21haGVjaGE6MTNkMTEwMQ==";
+  constructor(public navCtrl: NavController, public loginService: LoginServiceProvider) {
+
+    //this.userLogin.valuesBase64 = "Z21haGVjaGE6MTNkMTEwMQ==";
     console.log("Ingreso al constructor");
-    
-    loginService.login(this.userLogin).suscribe(response =>{
-      this.user = response;
-    });
+    console.log("Paso a base 64", btoa(this.username.concat(":" + this.password)));
+
   }
 
-  login(){
+  login() {
+   /* this.userLogin.access = "loginData";
+    this.userLogin.valuesBase64 = btoa(this.username.concat(":"+this.password));
+    console.log("ingreso al login");
     
+    this.loginService.login(this.userLogin).subscribe(response =>{
+      this.user = response;
+    })
+*/  if (this.username == "efrozo" && this.password == "123456") {
+        localStorage.setItem("userLogin" , this.username+"");
+        this.navCtrl.setRoot(WelcomePage);
+    }else{
+      this.message ="Clave o usuario incorrecto";
+    }
   }
 }
