@@ -2,8 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoginModel } from '../../Model/LoginModel';
 
-import { Observable } from 'rxjs';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/Observable'; 
+
 import { User } from '../../Model/User';
 
 
@@ -16,7 +16,7 @@ import { User } from '../../Model/User';
 @Injectable()
 export class LoginServiceProvider {
 
-  private BASE_URL: string = "https://bgdpxps9e2.execute-api.us-east-1.amazonaws.com/Prod/api/";
+  private BASE_URL: string = "http://localhost:61868/api/";
 
   private header:HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json;charset=utf-8')
   
@@ -26,7 +26,7 @@ export class LoginServiceProvider {
   }
 
   login(loginModule: LoginModel):Observable<User> {
-    return this.http.post<User>(this.BASE_URL, loginModule, {headers : this.header});
+    return this.http.post<User>(this.BASE_URL +"Authorization", loginModule, {headers : this.header});
   }
 
 }

@@ -13,9 +13,11 @@
 
             <button ion-button (click)="login()" >Ingresar</button>
           </ion-item>
+          <p>{{message}}</p>
+        </ion-list>
+        <ion-list>
+          <p>No tienes usuario?</p> <a (click)="envia()">Crear cuenta</a>
         </ion-list>
   </ion-grid>
-  <ion-list>
-    <p>{{message}}</p>
-  </ion-list>
+  
 </ion-content>
