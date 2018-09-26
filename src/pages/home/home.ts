@@ -32,19 +32,19 @@ export class HomePage {
 
   login() {
 
-    console.log("ingreso al login");
+    /*console.log("ingreso al login");
     this.userLogin.valuesBase64 = btoa(this.username.concat(":" + this.password));
     this.userLogin.access = "loginData";
 
     this.loginService.login(this.userLogin).subscribe(response => {
       this.user = response;
 
-    })
+    })*/
 
-    if (this.user.token != null) {
+    if (this.username=="username" && this.password=="123456") {
       console.log("Hola");
 
-      localStorage.setItem("userLogin", this.username + "");
+      localStorage.setItem("userLogin", this.username+"");
       this.navCtrl.setRoot(WelcomePage);
     } else {
       this.message = "Clave o usuario incorrecto";
