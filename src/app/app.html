@@ -1,1 +1,10 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="NAV">
+    <ion-content>
+        <ion-list>
+            <button ion-item><ion-icon item-left name="contact"></ion-icon>Mi cuenta</button>
+            <button ion-item><ion-icon item-left name="contact"></ion-icon>Mis Grupos</button>
+        </ion-list>
+        
+    </ion-content>
+</ion-menu>
+<ion-nav #NAV [root]="rootPage"></ion-nav>

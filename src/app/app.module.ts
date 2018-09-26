@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { LoginServiceProvider } from '../providers/login-service/login-service';
 import { WelcomePage } from '../pages/welcome/welcome';
 import { RegisterUserPage } from '../pages/register-user/register-user';
+import { GruposPage } from '../pages/grupos/grupos';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { RegisterUserPage } from '../pages/register-user/register-user';
     MyApp,
     HomePage,
     WelcomePage,
-    RegisterUserPage
+    RegisterUserPage,
+    GruposPage
 
   ],
   imports: [
@@ -30,7 +32,8 @@ import { RegisterUserPage } from '../pages/register-user/register-user';
     MyApp,
     HomePage,
     WelcomePage,
-    RegisterUserPage
+    RegisterUserPage,
+    GruposPage
   ],
   providers: [
     StatusBar,
