@@ -21,10 +21,10 @@ export class WelcomePage {
   private user:User;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    /*if (!localStorage.getItem("userLogin")) {
+    if (!localStorage.getItem("userLogin")) {
       navCtrl.setRoot(HomePage)
-    }*/
-   // this.user = JSON.parse(localStorage.getItem("userLogin"));
+      this.user = JSON.parse(localStorage.getItem("userLogin"));
+    }
   }
 
   ionViewDidLoad() {

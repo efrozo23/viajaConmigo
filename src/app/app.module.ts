@@ -10,6 +10,7 @@ import { LoginServiceProvider } from '../providers/login-service/login-service';
 import { WelcomePage } from '../pages/welcome/welcome';
 import { RegisterUserPage } from '../pages/register-user/register-user';
 import { GruposPage } from '../pages/grupos/grupos';
+import { RutaPage } from '../pages/ruta/ruta';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { GruposPage } from '../pages/grupos/grupos';
     MyApp,
     HomePage,
     WelcomePage,
+    RutaPage,
     RegisterUserPage,
     GruposPage
 
@@ -33,7 +35,8 @@ import { GruposPage } from '../pages/grupos/grupos';
     HomePage,
     WelcomePage,
     RegisterUserPage,
-    GruposPage
+    GruposPage,
+    RutaPage
   ],
   providers: [
     StatusBar,

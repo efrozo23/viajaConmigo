@@ -1,5 +1,5 @@
 export class LoginModel{
-    username:String;
-    password:String;
+    valuesBase64:String;
+    access:String;
     constructor(){}
 }

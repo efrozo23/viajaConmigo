@@ -7,6 +7,7 @@ import { User } from '../../Model/User';
 
 import { WelcomePage } from '../welcome/welcome';
 import { RegisterUserPage } from '../register-user/register-user';
+import { RutaPage } from '../ruta/ruta';
 
 
 @Component({
@@ -26,20 +27,25 @@ export class HomePage {
    
   }
   login() {
-    /*this.userLogin.username = this.username;
-    this.userLogin.password = this.password;
+    this.userLogin.valuesBase64 = this.username;
+    this.userLogin.access = this.password;
     this.loginService.login(this.userLogin).subscribe(response => {
+      console.log(response);
+      
       this.user = response;
       if (this.user.Message == "") {
         localStorage.setItem("userLogin", JSON.stringify(this.user));
+        this.navCtrl.setRoot(WelcomePage);
       } else {
         this.message = "Clave o usuario incorrecto";
       }
-    })*/
-    this.navCtrl.setRoot(WelcomePage);
+    })
   }
 
   envia(){
     this.navCtrl.setRoot(RegisterUserPage)
+  }
+  enviaRuta(){
+    this.navCtrl.setRoot(RutaPage)
   }
 }

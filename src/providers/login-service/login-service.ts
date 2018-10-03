@@ -24,6 +24,7 @@ export class LoginServiceProvider {
     console.log('Hello LoginServiceProvider Provider');
   }
   login(loginModule: LoginModel):Observable<User> {
+    console.log(loginModule);
     return this.http.post<User>(UtilUrl.BASE_URL +"Autentication", loginModule, {headers : this.header});
   }
 }
