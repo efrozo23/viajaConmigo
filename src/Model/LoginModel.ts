@@ -1,6 +1,5 @@
 export class LoginModel{
-    access: String;
-    valuesBase64: String;
-    grant_type : "password";
+    username:String;
+    password:String;
     constructor(){}
 }

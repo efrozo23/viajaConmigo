@@ -1,14 +1,14 @@
 import { DatePipe } from "@angular/common";
 
 export class User{
-    id: number
-    userKey: string
-    passwordKey: string
-    phoneNumber: number
-    name: string
-    token: number
-    idDevice: string
-    creationDate: DatePipe
-    success: boolean
-    message: string
+    CreationDate: Date
+    Id: number
+    IdDevice: string
+    Message: string
+    Name: string
+    PasswordKey: string
+    PhoneNumber: string
+    Success: boolean
+    Token: string
+    UserKey: string
 }

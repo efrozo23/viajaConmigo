@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { User } from '../../Model/User';
 
 /**
  * Generated class for the WelcomePage page.
@@ -17,12 +18,13 @@ import { HomePage } from '../home/home';
 export class WelcomePage {
 
   private username: String;
+  private user:User;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    if (!localStorage.getItem("userLogin")) {
+    /*if (!localStorage.getItem("userLogin")) {
       navCtrl.setRoot(HomePage)
-    }
-    this.username = localStorage.getItem("userLogin");
+    }*/
+   // this.user = JSON.parse(localStorage.getItem("userLogin"));
   }
 
   ionViewDidLoad() {

@@ -5,6 +5,8 @@ import { LoginModel } from '../../Model/LoginModel';
 import { Observable } from 'rxjs/Observable'; 
 
 import { User } from '../../Model/User';
+import { UtilUrl } from '../../Util/CONSTURL';
+
 
 
 /*
@@ -16,17 +18,13 @@ import { User } from '../../Model/User';
 @Injectable()
 export class LoginServiceProvider {
 
-  private BASE_URL: string = "http://localhost:61868/api/";
-
-  private header:HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json;charset=utf-8')
+  private header:HttpHeaders = new HttpHeaders().set('Access-Control-Allow-Origin' , '*').set('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT').set('Accept','application/json').set('content-type','application/json');
   
-
   constructor(public http: HttpClient) {
     console.log('Hello LoginServiceProvider Provider');
   }
-
   login(loginModule: LoginModel):Observable<User> {
-    return this.http.post<User>(this.BASE_URL +"Authorization", loginModule, {headers : this.header});
+    return this.http.post<User>(UtilUrl.BASE_URL +"Autentication", loginModule, {headers : this.header});
   }
-
 }
+
