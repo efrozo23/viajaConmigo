@@ -11,6 +11,8 @@ import { WelcomePage } from '../pages/welcome/welcome';
 import { RegisterUserPage } from '../pages/register-user/register-user';
 import { GruposPage } from '../pages/grupos/grupos';
 import { RutaPage } from '../pages/ruta/ruta';
+import { BackuserProvider } from '../providers/backuser/backuser';
+
 
 
 @NgModule({
@@ -42,7 +44,8 @@ import { RutaPage } from '../pages/ruta/ruta';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    LoginServiceProvider
+    LoginServiceProvider,
+    BackuserProvider
   ]
 })
 export class AppModule {}
