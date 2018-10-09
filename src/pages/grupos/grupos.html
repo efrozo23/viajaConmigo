@@ -6,13 +6,28 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>grupos</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Mis Grupos</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let item of myGroups">
+      <ion-avatar item-start>
+        <img src="http://imagenpng.com/wp-content/uploads/2018/03/Logo-batman3-635x326.jpg">
+      </ion-avatar>
+      <h2>{{item.Name}}</h2>
+      <h3>{{item.Description}}</h3>
+      <p></p>
+      <button ion-button item-end (click)="details()" class="btnG">
+          <ion-icon ios="ios-people" md="md-people" class="iconG"></ion-icon>
+      </button>
+      
+    </ion-item>
+  </ion-list>
+
 
 </ion-content>

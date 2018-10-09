@@ -24,22 +24,33 @@ export class HomePage {
   private user: User = new User();
 
   constructor(public navCtrl: NavController, public loginService: LoginServiceProvider) {
-   
+    if (!localStorage.getItem("userLogin")) {
+      console.log("Ingreso");
+      
+    } else {
+      navCtrl.setRoot(WelcomePage)
+    }
   }
   login() {
     this.userLogin.valuesBase64 = this.username;
     this.userLogin.access = this.password;
-    this.loginService.login(this.userLogin).subscribe(response => {
+    this.user.Name ="Elkin"
+    this.user.PasswordKey = "123456"
+    this.user.CreationDate = new Date()
+    this.user.Message == "hola"
+    /*this.loginService.login(this.userLogin).subscribe(response => {
       console.log(response);
       
       this.user = response;
-      if (this.user.Message == "") {
-        localStorage.setItem("userLogin", JSON.stringify(this.user));
-        this.navCtrl.setRoot(WelcomePage);
-      } else {
-        this.message = "Clave o usuario incorrecto";
-      }
-    })
+     
+    })*/
+
+    if (this.user.Message != "") {
+      localStorage.setItem("userLogin", JSON.stringify(this.user));
+      this.navCtrl.setRoot(WelcomePage);
+    } else {
+      this.message = "Clave o usuario incorrecto";
+    }
   }
 
   envia(){

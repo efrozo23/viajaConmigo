@@ -6,8 +6,8 @@
   "type": "ionic-angular",
   "proxies": [
     {
-      "path": "/v1",
-      "proxyUrl": "hhttps://e6160nodqd.execute-api.us-east-1.amazonaws.com/"
+      "path": "/v1"
+      
     }
   ]
 }

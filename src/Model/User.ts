@@ -11,4 +11,7 @@ export class User{
     Success: boolean
     Token: string
     UserKey: string
+    constructor(){
+        
+    }
 }

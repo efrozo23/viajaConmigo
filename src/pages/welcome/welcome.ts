@@ -18,17 +18,24 @@ import { User } from '../../Model/User';
 export class WelcomePage {
 
   private username: String;
-  private user:User;
+  private user: User;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    if (!localStorage.getItem("userLogin")) {
-      navCtrl.setRoot(HomePage)
-      this.user = JSON.parse(localStorage.getItem("userLogin"));
-    }
+
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad WelcomePage');
+
+    if (!localStorage.getItem("userLogin")) {
+      console.log("Ingreso  ");
+      
+      this.navCtrl.setRoot(HomePage)
+    } else {
+      this.user = JSON.parse(localStorage.getItem("userLogin"));
+
+
+    }
+    console.log('ionViewDidLoad WelcomePage',this.user);
   }
 
 }
