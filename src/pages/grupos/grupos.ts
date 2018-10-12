@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
 import { Group } from '../../Model/Group';
 import { User } from '../../Model/User';
 import { RutaPage } from '../ruta/ruta';
+import { AssociatedUserPage } from '../associated-user/associated-user';
 
 /**
  * Generated class for the GruposPage page.
@@ -18,43 +19,76 @@ import { RutaPage } from '../ruta/ruta';
 })
 export class GruposPage {
 
-  group :Group
-  myGroups:Group[] = new Array()
-  user :User
-  associatedUser:User[] = new Array()
+  group: Group
+  myGroups: Group[] = new Array()
+  user: User
+  associatedUser: User[] = new Array()
 
-  constructor(public navCtrl: NavController, public navParams: NavParams ,public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, private alert: AlertController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GruposPage');
     this.loadMyGroups()
     console.log(this.associatedUser);
-    
+
 
   }
 
-  loadMyGroups(){
+  loadMyGroups() {
     for (let i = 0; i < 10; i++) {
       this.user = new User()
-      this.user.Name= "Test"+i
+      this.user.Name = "Test" + i
       this.user.CreationDate = new Date()
-      this.user.PhoneNumber = "123"+i
+      this.user.PhoneNumber = "123" + i
+      this.user.Success = true
       this.associatedUser.push(this.user)
     }
-    for (let j = 0; j < 5; j++) { 
+    for (let j = 0; j < 5; j++) {
       this.group = new Group()
-      this.group.Name = "Mi grupo de test" +j
-      this.group.Description = "esta es la ruta "+j
+      this.group.Name = "Mi grupo de test" + j
+      this.group.Description = "esta es la ruta " + j
       this.group.UserAssociated = this.associatedUser
       this.myGroups.push(this.group)
     }
   }
-  
-  details(){
+
+  details(any) {
     console.log("ok");
-    const modal =this.modalCtrl.create(RutaPage,this.associatedUser ,{showBackdrop:true})
+    const modal = this.modalCtrl.create(AssociatedUserPage, any.UserAssociated, { showBackdrop: true })
     modal.present()
+  }
+
+  addGroup() {
+    let alert = this.alert.create({
+      title: "Nuevo Grupo",
+      inputs: [{
+        name: "Name",
+        placeholder: "Ingrese Nombre"
+      },
+      {
+        name: "Description",
+        placeholder: "Descripción",
+        type: "text"
+      }],
+      buttons: [
+        {
+          text: "Guardar",
+          handler: data => {
+            console.log(data);
+            if(data.Name != "" && data.Description != ""){
+              this.myGroups.push(data)
+              return true
+            }
+            return false
+          }
+        },
+        {
+          text:"Cancelar"
+        }
+      ]
+    })
+    alert.present()
   }
 
 }

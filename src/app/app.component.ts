@@ -23,6 +23,7 @@ export class MyApp {
 
   grupo(){
     console.log("Envia"); 
+    
     this.nav.push(GruposPage) 
   }
 }

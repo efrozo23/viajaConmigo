@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { User } from '../../Model/User';
 
 /**
  * Generated class for the AssociatedUserPage page.
@@ -15,11 +16,28 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AssociatedUserPage {
 
+  listUser: User[] = new Array()
+  user: User
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.listUser = navParams.data
+    
+    
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AssociatedUserPage');
+    console.log('Creo la lista de usuarios');
+    
+    
+  }
+
+  closeModal() {
+    this.navCtrl.pop();
+  }
+
+  setLevel($event, any){
+    console.log($event, any);
+    
   }
 
 }

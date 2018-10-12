@@ -12,6 +12,7 @@ import { RegisterUserPage } from '../pages/register-user/register-user';
 import { GruposPage } from '../pages/grupos/grupos';
 import { RutaPage } from '../pages/ruta/ruta';
 import { BackuserProvider } from '../providers/backuser/backuser';
+import { AssociatedUserPage } from '../pages/associated-user/associated-user';
 
 
 
@@ -22,7 +23,8 @@ import { BackuserProvider } from '../providers/backuser/backuser';
     WelcomePage,
     RutaPage,
     RegisterUserPage,
-    GruposPage
+    GruposPage,
+    AssociatedUserPage
 
   ],
   imports: [
@@ -38,7 +40,8 @@ import { BackuserProvider } from '../providers/backuser/backuser';
     WelcomePage,
     RegisterUserPage,
     GruposPage,
-    RutaPage
+    RutaPage,
+    AssociatedUserPage
 
   ],
   providers: [
