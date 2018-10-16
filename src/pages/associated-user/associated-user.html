@@ -27,12 +27,12 @@
         <img src="../../../Downloads/P4040096.jpg">
       </ion-avatar>
       <ion-label>
-        <h2>{{item.Name}}</h2>
-        <h3>{{item.Message}}</h3>
+        <h2>{{item.usuario}}</h2>
+        <h3>{{item.idestado}}</h3>
         <p></p>
       </ion-label>
 
-      <ion-toggle [(ngModel)]="item.Success"  (ionChange)="setLevel($event, item)" ></ion-toggle>
+      <ion-toggle [(ngModel)]="item.idestado"  (ionChange)="setLevel($event, item)" ></ion-toggle>
     </ion-item>
   </ion-list>
 

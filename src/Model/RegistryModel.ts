@@ -1,15 +1,13 @@
 export class RegistryModel{
-    Id:String;
-    IdTipoUsuario:String;
-    IdEstado:String;
-    OtpKey:String;
-    Nombre:String;
-    Apellido:String;
-    DocumentoIdentidad:String;
-    Email:String;
-    Telefono:String;
-    Usuario:String;
-    Contrasena:String;
-    CreationDate:String;
+    apellido: String
+    contrasena: String
+    documentoidentidad: String
+    idestado: number
+    idtipousuario: number
+    idusuario: number
+    nombre: String
+    otpkey: String
+    telefono: String
+    usuario: String
     constructor(){}
 }

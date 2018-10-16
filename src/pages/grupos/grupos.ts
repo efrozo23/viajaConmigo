@@ -38,10 +38,10 @@ export class GruposPage {
   loadMyGroups() {
     for (let i = 0; i < 10; i++) {
       this.user = new User()
-      this.user.Name = "Test" + i
-      this.user.CreationDate = new Date()
-      this.user.PhoneNumber = "123" + i
-      this.user.Success = true
+      this.user.usuario = "Test" + i
+      
+      this.user.telefono = "123" + i
+      this.user.idestado = 1
       this.associatedUser.push(this.user)
     }
     for (let j = 0; j < 5; j++) {

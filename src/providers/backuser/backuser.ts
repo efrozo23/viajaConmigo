@@ -20,8 +20,8 @@ export class BackuserProvider {
   
   private header:HttpHeaders = new HttpHeaders().set('Access-Control-Allow-Origin' , '*').set('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT').set('Accept','application/json').set('content-type','application/json');
 
-  public saveuser(user: RegistryModel):Observable<RegistryModel>{
+  public saveuser(user: RegistryModel):Observable<String>{
     console.log(user);
-    return this.http.post<RegistryModel>(UtilUrl.BASE_URL +"RegisterDeploy", user, {headers : this.header});
+    return this.http.post<String>(UtilUrl.BASE_URL +"registrousuario.php", user, {headers : this.header});
   }
 }

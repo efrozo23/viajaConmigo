@@ -16,7 +16,7 @@
 <ion-content padding>
   <form [formGroup]="myForm" (ngSubmit)="saveUser()">
     <ion-item>
-      <ion-input formControlName="identification" type="number" placeholder="Nº Documento"></ion-input>
+      <ion-input formControlName="document" type="number" placeholder="Nº Documento"></ion-input>
     </ion-item>
     <ion-item>
       <ion-input formControlName="name" type="text" placeholder="Nombres"></ion-input>
@@ -27,6 +27,9 @@
     <ion-item>
       <ion-input formControlName="email" type="email" placeholder="Correo"></ion-input>
     </ion-item>
+    <ion-item>
+        <ion-input formControlName="username" type="text" placeholder="Usuario"></ion-input>
+      </ion-item>
     <ion-item>
       <ion-input formControlName="phone" type="number" placeholder="Número celular"></ion-input>
     </ion-item>
@@ -40,6 +43,11 @@
     </div>
     <div padding>
       <button ion-button block type="submit" [disabled]="!passwordMatchValidator(myForm)">Guardar</button>
+    </div>
+    <div>
+      <ion-item>
+        <p>{{message}}</p>
+      </ion-item>
     </div>
   </form>
   <div padding>

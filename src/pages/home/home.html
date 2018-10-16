@@ -5,10 +5,10 @@
       <ion-list>
         <form [formGroup]="form" (ngSubmit)="login()">
             <ion-item>
-                <ion-input type="text" formControlName="username"   placeholder="Username"></ion-input>
+                <ion-input type="text" formControlName="valuesBase64"   placeholder="Username"></ion-input>
               </ion-item>
               <ion-item>
-                <ion-input type="password" formControlName="password"  placeholder="Password"></ion-input>
+                <ion-input type="password" formControlName="access"  placeholder="Password"></ion-input>
               </ion-item>
               <ion-item>
     
@@ -21,9 +21,7 @@
         <ion-list>
           <p>No tienes usuario?</p> <a (click)="envia()">Crear cuenta</a>
         </ion-list>
-        <ion-list>
-          <p>No tienes usuario?</p> <a (click)="enviaRuta()">test</a>
-        </ion-list>
+        
   </ion-grid>
   
 </ion-content>

@@ -1,17 +1,17 @@
 
 
-export class User{
-    CreationDate: Date
-    Id: number
-    IdDevice: string
-    Message: string
-    Name: string
-    PasswordKey: string
-    PhoneNumber: string
-    Success: boolean
-    Token: string
-    UserKey: string
-    constructor(){
-        
+export class User {
+    apellido: String
+    contrasena: String
+    documentoidentidad: String
+    idestado: number
+    idtipousuario: number
+    idusuario: number
+    nombre: String
+    otpkey: String
+    telefono: String
+    usuario: String
+    constructor() {
+
     }
 }

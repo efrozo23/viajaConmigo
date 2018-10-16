@@ -21,13 +21,15 @@ export class RegisterUserPage {
 
   private user: RegistryModel;
   myForm: FormGroup ;
+  private message :String = ""
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder:FormBuilder, public backuser: BackuserProvider) {
     this.myForm = formBuilder.group({
-      identification:['',[Validators.required,Validators.minLength(6),Validators.maxLength(10)]],
+      document:['',[Validators.required,Validators.minLength(6),Validators.maxLength(10)]],
       name: ['', Validators.required],
       surnames:['',Validators.required],
       email: ['', Validators.required],
+      username:['',[Validators.required,Validators.maxLength(20)]],
       phone :['',[Validators.required,Validators.minLength(7),Validators.maxLength(12)]],
       passwordRetry: this.formBuilder.group({
         password: ['', Validators.required],
@@ -44,8 +46,11 @@ export class RegisterUserPage {
 
   saveUser(){
     this.user = this.myForm.value;
+    console.log(this.user);
+    
     this.backuser.saveuser(this.user).subscribe(response =>{
       console.log(response);
+      this.message = response
     });
   }
 

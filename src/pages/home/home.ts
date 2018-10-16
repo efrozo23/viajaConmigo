@@ -21,13 +21,13 @@ export class HomePage {
   
   private message: String = "";
   private userLogin: LoginModel = new LoginModel();
-  private user: User = new User();
+  private user: User
   private form:FormGroup
 
   constructor(public navCtrl: NavController, public loginService: LoginServiceProvider,public formBuilder:FormBuilder) {
     this.form = formBuilder.group({
-      username:['',Validators.required],
-      password:['',Validators.required]  
+      valuesBase64:['',Validators.required],
+      access:['',Validators.required]  
     })
     if (!localStorage.getItem("userLogin")) {
       console.log("Ingreso");
@@ -40,26 +40,21 @@ export class HomePage {
     console.log(this.form.value);
     
     this.userLogin = this.form.value;
+   
+    this.loginService.login(this.userLogin).subscribe(response => {
+      this.user = response
+      console.log(this.user);
+      console.log(this.user !== null);
+      if (this.user !== null) {
+        localStorage.setItem("userLogin", JSON.stringify(this.user));
+        this.navCtrl.setRoot(WelcomePage);
+      } else {
+        this.message = "Clave o usuario incorrecto";
+      }
+  
+    })
     
-    this.user.Name ="Elkin"
-    this.user.PasswordKey = "123456"
-    this.user.CreationDate = new Date()
-    this.user.Message == "hola"
-    this.user.Id =1056030632
-    this.user.IdDevice = "3023253439"
-    /*this.loginService.login(this.userLogin).subscribe(response => {
-      console.log(response);
-      
-      this.user = response;
-     
-    })*/
-
-    if (this.user.Message != "") {
-      localStorage.setItem("userLogin", JSON.stringify(this.user));
-      this.navCtrl.setRoot(WelcomePage);
-    } else {
-      this.message = "Clave o usuario incorrecto";
-    }
+   
   }
 
   envia(){
