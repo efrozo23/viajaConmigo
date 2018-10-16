@@ -19,15 +19,16 @@ export class UserDataPage {
   private user:User
   myForm: FormGroup
   constructor(public navCtrl: NavController, public navParams: NavParams,public formbuilder:FormBuilder) {
-    
+    this.user = JSON.parse(localStorage.getItem("userLogin"));
+    this.myForm = this.formbuilder.group({
+      username:[this.user.nombre,Validators.required]
+    })
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UserDataPage');
-    this.user = JSON.parse(localStorage.getItem("userLogin"));
-    this.myForm = this.formbuilder.group({
-      username:['Elkin',Validators.required]
-    })
+    
+   
   }
 
 }
