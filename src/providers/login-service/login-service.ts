@@ -25,7 +25,7 @@ export class LoginServiceProvider {
   }
   login(loginModule: LoginModel):Observable<User> {
     console.log(loginModule);
-    return this.http.post<User>(UtilUrl.BASE_URL +"Autentication", loginModule, {headers : this.header});
+    return this.http.post<User>(UtilUrl.BASE_URL +"loginusuario.php", loginModule, {headers : this.header});
   }
 }
 

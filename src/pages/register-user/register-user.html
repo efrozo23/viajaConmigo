@@ -16,6 +16,9 @@
 <ion-content padding>
   <form [formGroup]="myForm" (ngSubmit)="saveUser()">
     <ion-item>
+      <ion-input formControlName="identification" type="number" placeholder="Nº Documento"></ion-input>
+    </ion-item>
+    <ion-item>
       <ion-input formControlName="name" type="text" placeholder="Nombres"></ion-input>
     </ion-item>
     <ion-item>
@@ -36,10 +39,10 @@
       </ion-item>
     </div>
     <div padding>
-      <button ion-button block type="submit" [disabled]="!myForm.valid">Guardar</button>
+      <button ion-button block type="submit" [disabled]="!passwordMatchValidator(myForm)">Guardar</button>
     </div>
   </form>
   <div padding>
-    <button ion-button block  (click)="back()">Regresar</button>
+    <button ion-button block (click)="back()">Regresar</button>
   </div>
 </ion-content>

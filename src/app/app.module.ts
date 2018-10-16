@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule, NavController } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClientModule } from '@angular/common/http';
@@ -13,6 +13,7 @@ import { GruposPage } from '../pages/grupos/grupos';
 import { RutaPage } from '../pages/ruta/ruta';
 import { BackuserProvider } from '../providers/backuser/backuser';
 import { AssociatedUserPage } from '../pages/associated-user/associated-user';
+import { UserDataPage } from '../pages/user-data/user-data';
 
 
 
@@ -24,7 +25,8 @@ import { AssociatedUserPage } from '../pages/associated-user/associated-user';
     RutaPage,
     RegisterUserPage,
     GruposPage,
-    AssociatedUserPage
+    AssociatedUserPage,
+    UserDataPage
 
   ],
   imports: [
@@ -41,7 +43,8 @@ import { AssociatedUserPage } from '../pages/associated-user/associated-user';
     RegisterUserPage,
     GruposPage,
     RutaPage,
-    AssociatedUserPage
+    AssociatedUserPage,
+    UserDataPage
 
   ],
   providers: [

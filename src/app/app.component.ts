@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { GruposPage } from '../pages/grupos/grupos';
+
+import { UserDataPage } from '../pages/user-data/user-data';
 @Component({
   templateUrl: 'app.html'
 })
@@ -25,6 +27,14 @@ export class MyApp {
     console.log("Envia"); 
     
     this.nav.push(GruposPage) 
+  }
+
+  logOut(){
+    localStorage.clear()
+    this.nav.push(HomePage)
+  }
+  goUser(){
+    this.nav.push(UserDataPage)
   }
 }
 

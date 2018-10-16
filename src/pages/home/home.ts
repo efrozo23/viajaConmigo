@@ -8,6 +8,7 @@ import { User } from '../../Model/User';
 import { WelcomePage } from '../welcome/welcome';
 import { RegisterUserPage } from '../register-user/register-user';
 import { RutaPage } from '../ruta/ruta';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -17,13 +18,17 @@ import { RutaPage } from '../ruta/ruta';
 })
 export class HomePage {
 
-  private username: String = "";
-  private password: String = "";
+  
   private message: String = "";
   private userLogin: LoginModel = new LoginModel();
   private user: User = new User();
+  private form:FormGroup
 
-  constructor(public navCtrl: NavController, public loginService: LoginServiceProvider) {
+  constructor(public navCtrl: NavController, public loginService: LoginServiceProvider,public formBuilder:FormBuilder) {
+    this.form = formBuilder.group({
+      username:['',Validators.required],
+      password:['',Validators.required]  
+    })
     if (!localStorage.getItem("userLogin")) {
       console.log("Ingreso");
       
@@ -32,12 +37,16 @@ export class HomePage {
     }
   }
   login() {
-    this.userLogin.valuesBase64 = this.username;
-    this.userLogin.access = this.password;
+    console.log(this.form.value);
+    
+    this.userLogin = this.form.value;
+    
     this.user.Name ="Elkin"
     this.user.PasswordKey = "123456"
     this.user.CreationDate = new Date()
     this.user.Message == "hola"
+    this.user.Id =1056030632
+    this.user.IdDevice = "3023253439"
     /*this.loginService.login(this.userLogin).subscribe(response => {
       console.log(response);
       

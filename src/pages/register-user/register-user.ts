@@ -24,10 +24,11 @@ export class RegisterUserPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder:FormBuilder, public backuser: BackuserProvider) {
     this.myForm = formBuilder.group({
+      identification:['',[Validators.required,Validators.minLength(6),Validators.maxLength(10)]],
       name: ['', Validators.required],
       surnames:['',Validators.required],
       email: ['', Validators.required],
-      phone :['',[Validators.required,Validators.minLength(7)]],
+      phone :['',[Validators.required,Validators.minLength(7),Validators.maxLength(12)]],
       passwordRetry: this.formBuilder.group({
         password: ['', Validators.required],
         passwordConfirmation: ['', Validators.required]
@@ -42,18 +43,17 @@ export class RegisterUserPage {
   }
 
   saveUser(){
-    console.log(this.myForm.value);
     this.user = this.myForm.value;
-    //console.log(this.user);
     this.backuser.saveuser(this.user).subscribe(response =>{
       console.log(response);
     });
   }
 
   passwordMatchValidator(g : FormGroup){
-    return g.value.passwordRetry.password === g.value.passwordRetry.passwordConfirmation ? 
+    return (g.value.passwordRetry.password === g.value.passwordRetry.passwordConfirmation)&&(g.valid) ? 
     true : false
   }
+ 
 
   back(){
     this.navCtrl.setRoot(HomePage);

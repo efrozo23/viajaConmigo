@@ -3,16 +3,19 @@
 <ion-content padding>
   <ion-grid justify-content-center>
       <ion-list>
-          <ion-item>
-            <ion-input type="text" [(ngModel)]="username"  placeholder="Username"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-input type="password" [(ngModel)]="password" placeholder="Password"></ion-input>
-          </ion-item>
-          <ion-item>
-
-            <button ion-button (click)="login()" >Ingresar</button>
-          </ion-item>
+        <form [formGroup]="form" (ngSubmit)="login()">
+            <ion-item>
+                <ion-input type="text" formControlName="username"   placeholder="Username"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input type="password" formControlName="password"  placeholder="Password"></ion-input>
+              </ion-item>
+              <ion-item>
+    
+                <button ion-button type="submit" [disabled]="!form.valid" >Ingresar</button>
+              </ion-item>
+        </form>
+         
           <p>{{message}}</p>
         </ion-list>
         <ion-list>
