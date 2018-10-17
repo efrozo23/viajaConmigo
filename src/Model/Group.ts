@@ -5,5 +5,6 @@ export class Group{
     Description:String
     UserAssociated:User[]
     State : number
+    UserAdmin:number
     constructor(){}
 }

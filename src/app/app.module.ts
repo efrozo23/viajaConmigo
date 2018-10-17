@@ -14,6 +14,7 @@ import { RutaPage } from '../pages/ruta/ruta';
 import { BackuserProvider } from '../providers/backuser/backuser';
 import { AssociatedUserPage } from '../pages/associated-user/associated-user';
 import { UserDataPage } from '../pages/user-data/user-data';
+import { GroupServiceProvider } from '../providers/group-service/group-service';
 
 
 
@@ -52,7 +53,9 @@ import { UserDataPage } from '../pages/user-data/user-data';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LoginServiceProvider,
-    BackuserProvider
+    BackuserProvider,
+    GroupServiceProvider,
+    GroupServiceProvider
   ]
 })
 export class AppModule {}

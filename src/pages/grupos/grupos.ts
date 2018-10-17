@@ -4,6 +4,7 @@ import { Group } from '../../Model/Group';
 import { User } from '../../Model/User';
 import { RutaPage } from '../ruta/ruta';
 import { AssociatedUserPage } from '../associated-user/associated-user';
+import { GroupServiceProvider } from '../../providers/group-service/group-service';
 
 /**
  * Generated class for the GruposPage page.
@@ -19,12 +20,13 @@ import { AssociatedUserPage } from '../associated-user/associated-user';
 })
 export class GruposPage {
 
-  group: Group
+  group: Group = new Group()
   myGroups: Group[] = new Array()
-  user: User
+  user: User 
   associatedUser: User[] = new Array()
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, private alert: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, private alert: AlertController, private groupservice: GroupServiceProvider) {
+    
   }
 
   ionViewDidLoad() {
@@ -39,7 +41,7 @@ export class GruposPage {
     for (let i = 0; i < 10; i++) {
       this.user = new User()
       this.user.usuario = "Test" + i
-      
+
       this.user.telefono = "123" + i
       this.user.idestado = 1
       this.associatedUser.push(this.user)
@@ -75,16 +77,24 @@ export class GruposPage {
         {
           text: "Guardar",
           handler: data => {
-            console.log(data);
-            if(data.Name != "" && data.Description != ""){
-              this.myGroups.push(data)
+            
+            if (data.Name != "" && data.Description != "") {
+              this.group = data;
+              console.log(this.group);
+              this.user = JSON.parse(localStorage.getItem("userLogin"))
+              this.group.UserAdmin = this.user.idusuario
+              this.groupservice.saveGroup(this.group).subscribe(response => {
+                console.log(response);
+
+                this.myGroups.push(this.group)
+              });
               return true
             }
             return false
           }
         },
         {
-          text:"Cancelar"
+          text: "Cancelar"
         }
       ]
     })
