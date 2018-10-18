@@ -24,4 +24,7 @@ export class GroupServiceProvider {
     return this.http.post<String>(UtilUrl.BASE_URL + "creargrupo.php", group, { headers: this.header });
   }
 
+  getMyGroup(idUser:number):Observable<any>{
+    return this.http.get<any>(UtilUrl.BASE_URL+"listargrupos.php?idusuario="+idUser,{headers:this.header});
+  }
 }

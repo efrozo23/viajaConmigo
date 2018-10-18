@@ -1,10 +1,10 @@
 import { User } from "./User";
 
 export class Group{
-    Name: String
-    Description:String
+    nombre: String
+    descripcion:String
     UserAssociated:User[]
-    State : number
+    idestado : number
     UserAdmin:number
     constructor(){}
 }

@@ -15,14 +15,14 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let item of myGroups">
+    <ion-item *ngFor="let grupo of myGroups">
       <ion-avatar item-start>
         <img src="../../../Downloads/P4040096.jpg">
       </ion-avatar>
-      <h2>{{item.Name}}</h2>
-      <h3>{{item.Description}}</h3>
+      <h2>{{grupo.nombre}}</h2>
+      <h3>{{grupo.descripcion}}</h3>
       <p></p>
-      <button ion-button item-end (click)="details(item)" class="btnG" [disabled]="!item.UserAssociated">
+      <button ion-button item-end (click)="details(grupo)" class="btnG" [disabled]="!grupo.UserAssociated">
         <ion-icon ios="ios-people" md="md-people" class="iconG"></ion-icon>
       </button>
 

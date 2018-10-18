@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, AlertController, List } from 'ionic-angular';
 import { Group } from '../../Model/Group';
 import { User } from '../../Model/User';
 import { RutaPage } from '../ruta/ruta';
@@ -21,24 +21,36 @@ import { GroupServiceProvider } from '../../providers/group-service/group-servic
 export class GruposPage {
 
   group: Group = new Group()
-  myGroups: Group[] = new Array()
-  user: User 
+  myGroups: Array<Group>=[]
+  user: User
   associatedUser: User[] = new Array()
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, private alert: AlertController, private groupservice: GroupServiceProvider) {
-    
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GruposPage');
     this.loadMyGroups()
-    console.log(this.associatedUser);
+
 
 
   }
 
   loadMyGroups() {
-    for (let i = 0; i < 10; i++) {
+    this.myGroups = new Array()
+    this.user = JSON.parse(localStorage.getItem("userLogin"))
+    this.groupservice.getMyGroup(this.user.idusuario).subscribe(response => {
+      console.log(response);
+      
+      /*if (response) {
+
+        this.myGroups = response
+      }
+      console.log(this.myGroups);*/
+
+    })
+    /*for (let i = 0; i < 10; i++) {
       this.user = new User()
       this.user.usuario = "Test" + i
 
@@ -48,11 +60,11 @@ export class GruposPage {
     }
     for (let j = 0; j < 5; j++) {
       this.group = new Group()
-      this.group.Name = "Mi grupo de test" + j
-      this.group.Description = "esta es la ruta " + j
+      this.group.nombre = "Mi grupo de test" + j
+      this.group.descripcion = "esta es la ruta " + j
       this.group.UserAssociated = this.associatedUser
       this.myGroups.push(this.group)
-    }
+    }*/
   }
 
   details(any) {
@@ -65,11 +77,11 @@ export class GruposPage {
     let alert = this.alert.create({
       title: "Nuevo Grupo",
       inputs: [{
-        name: "Name",
+        name: "nombre",
         placeholder: "Ingrese Nombre"
       },
       {
-        name: "Description",
+        name: "descripcion",
         placeholder: "Descripción",
         type: "text"
       }],
@@ -77,8 +89,8 @@ export class GruposPage {
         {
           text: "Guardar",
           handler: data => {
-            
-            if (data.Name != "" && data.Description != "") {
+
+            if (data.nombre != "" && data.descripcion != "") {
               this.group = data;
               console.log(this.group);
               this.user = JSON.parse(localStorage.getItem("userLogin"))
@@ -86,7 +98,7 @@ export class GruposPage {
               this.groupservice.saveGroup(this.group).subscribe(response => {
                 console.log(response);
 
-                this.myGroups.push(this.group)
+                
               });
               return true
             }
