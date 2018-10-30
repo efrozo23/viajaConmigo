@@ -21,7 +21,7 @@ import { GroupServiceProvider } from '../../providers/group-service/group-servic
 export class GruposPage {
 
   group: Group = new Group()
-  myGroups: Array<Group>=[]
+  myGroups: Array<Group> = []
   user: User
   associatedUser: User[] = new Array()
 
@@ -43,28 +43,11 @@ export class GruposPage {
     this.groupservice.getMyGroup(this.user.idusuario).subscribe(response => {
       console.log(response);
       
-      /*if (response) {
-
-        this.myGroups = response
+      if (response) {
+        this.myGroups = new Array().concat(response)
       }
-      console.log(this.myGroups);*/
-
     })
-    /*for (let i = 0; i < 10; i++) {
-      this.user = new User()
-      this.user.usuario = "Test" + i
 
-      this.user.telefono = "123" + i
-      this.user.idestado = 1
-      this.associatedUser.push(this.user)
-    }
-    for (let j = 0; j < 5; j++) {
-      this.group = new Group()
-      this.group.nombre = "Mi grupo de test" + j
-      this.group.descripcion = "esta es la ruta " + j
-      this.group.UserAssociated = this.associatedUser
-      this.myGroups.push(this.group)
-    }*/
   }
 
   details(any) {
@@ -97,8 +80,7 @@ export class GruposPage {
               this.group.UserAdmin = this.user.idusuario
               this.groupservice.saveGroup(this.group).subscribe(response => {
                 console.log(response);
-
-                
+                this.loadMyGroups();
               });
               return true
             }
