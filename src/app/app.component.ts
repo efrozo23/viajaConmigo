@@ -7,6 +7,8 @@ import { HomePage } from '../pages/home/home';
 import { GruposPage } from '../pages/grupos/grupos';
 
 import { UserDataPage } from '../pages/user-data/user-data';
+import { AllgroupsPage } from '../pages/allgroups/allgroups';
+import { RutaPage } from '../pages/ruta/ruta';
 @Component({
   templateUrl: 'app.html'
 })
@@ -28,13 +30,18 @@ export class MyApp {
     
     this.nav.push(GruposPage) 
   }
-
+  allgroups(){
+    this.nav.push(AllgroupsPage)
+  }
   logOut(){
     localStorage.clear()
     this.nav.push(HomePage)
   }
   goUser(){
     this.nav.push(UserDataPage)
+  }
+  myroute(){
+    this.nav.push(RutaPage)
   }
 }
 

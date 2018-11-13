@@ -24,15 +24,15 @@
     <ion-item *ngFor="let item of listUser">
 
       <ion-avatar item-start>
-        <img src="../../../Downloads/P4040096.jpg">
+        <img src="http://localhost:8088/TestWork/perfil.jpg">
       </ion-avatar>
       <ion-label>
-        <h2>{{item.usuario}}</h2>
-        <h3>{{item.idestado}}</h3>
+        <h2>{{item.nombre}} {{item.apellido}}</h2>
+        <h3>{{item.correo}}</h3>
         <p></p>
       </ion-label>
 
-      <ion-toggle [(ngModel)]="item.idestado"  (ionChange)="setLevel($event, item)" ></ion-toggle>
+      <ion-toggle [(ngModel)]="item.idestadousuarioporgrupo"  (ionChange)="setLevel($event, item)" ></ion-toggle>
     </ion-item>
   </ion-list>
 

@@ -24,4 +24,7 @@ export class BackuserProvider {
     console.log(user);
     return this.http.post<String>(UtilUrl.BASE_URL +"registrousuario.php", user, {headers : this.header});
   }
+  public edituser(user:RegistryModel):Observable<String>{
+    return this.http.put<String>(UtilUrl.BASE_URL+"actualizarusuario.php",user,{headers:this.header});
+  }
 }

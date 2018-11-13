@@ -14,10 +14,42 @@
 
 
 <ion-content padding>
-  
-  <form [formGroup]="myForm" >
+
+  <form [formGroup]="myForm" (ngSubmit)="edituser()">
     <ion-item>
-      <ion-input formControlName="username" type="text" placeholder="Nombres"></ion-input>
+      <ion-avatar item-start>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4oSdopLejY4aAPivKj_6a7Oo3ZBrv-LSqoj_e45e2i7swvD5Qtg">
+      </ion-avatar>
     </ion-item>
+
+    <ion-item>
+      <ion-input formControlName="iduser" type="number"></ion-input><br />
+    </ion-item>
+    <ion-item>
+      <ion-input formControlName="username" type="text" placeholder="Nombres"></ion-input><br />
+    </ion-item>
+    <ion-item>
+      <ion-input formControlName="lastname" type="text" placeholder="Apellidos"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input formControlName="nameuser" type="text" placeholder="Correo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input formControlName="email" type="text" placeholder="Correo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input formControlName="userphone" type="number" placeholder="Telefono"></ion-input>
+    </ion-item>
+    <div formGroupName="passwordRetry">
+      <ion-item>
+        <ion-input formControlName="password" type="password" placeholder="Contraseña"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input formControlName="passwordConfirmation" type="password" placeholder="Confirmar contraseña"></ion-input>
+      </ion-item>
+    </div>
+    <div padding>
+      <button ion-button block type="submit" [disabled]="!passwordMatchValidator(myForm)">Guardar</button>
+    </div>
   </form>
 </ion-content>

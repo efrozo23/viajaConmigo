@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, AlertController, List } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, AlertController} from 'ionic-angular';
 import { Group } from '../../Model/Group';
-import { User } from '../../Model/User';
-import { RutaPage } from '../ruta/ruta';
+
+
 import { AssociatedUserPage } from '../associated-user/associated-user';
 import { GroupServiceProvider } from '../../providers/group-service/group-service';
+import { User } from '../../Model/User';
 
 /**
  * Generated class for the GruposPage page.
@@ -52,7 +53,7 @@ export class GruposPage {
 
   details(any) {
     console.log("ok");
-    const modal = this.modalCtrl.create(AssociatedUserPage, any.UserAssociated, { showBackdrop: true })
+    const modal = this.modalCtrl.create(AssociatedUserPage, any, { showBackdrop: true })
     modal.present()
   }
 

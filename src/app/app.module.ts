@@ -15,7 +15,9 @@ import { BackuserProvider } from '../providers/backuser/backuser';
 import { AssociatedUserPage } from '../pages/associated-user/associated-user';
 import { UserDataPage } from '../pages/user-data/user-data';
 import { GroupServiceProvider } from '../providers/group-service/group-service';
+import { AllgroupsPage } from '../pages/allgroups/allgroups';
 
+import { Geolocation } from '@ionic-native/geolocation';
 
 
 @NgModule({
@@ -27,14 +29,14 @@ import { GroupServiceProvider } from '../providers/group-service/group-service';
     RegisterUserPage,
     GruposPage,
     AssociatedUserPage,
-    UserDataPage
-
+    UserDataPage,
+    AllgroupsPage
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp)
-    
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -45,17 +47,18 @@ import { GroupServiceProvider } from '../providers/group-service/group-service';
     GruposPage,
     RutaPage,
     AssociatedUserPage,
-    UserDataPage
+    UserDataPage,
+    AllgroupsPage
 
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     LoginServiceProvider,
     BackuserProvider,
     GroupServiceProvider,
-    GroupServiceProvider
+    Geolocation
   ]
 })
-export class AppModule {}
+export class AppModule { }

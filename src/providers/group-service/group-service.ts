@@ -27,4 +27,9 @@ export class GroupServiceProvider {
   getMyGroup(idUser:number):Observable<any>{
     return this.http.get<any>(UtilUrl.BASE_URL+"listargrupos.php?idusuario="+idUser,{headers:this.header});
   }
+
+  listUserByGroup(idGroup:number):Observable<any>{
+    return this.http.get<any>(UtilUrl.BASE_URL+"listarusuarios.php?idgrupo="+idGroup,{headers:this.header})
+  }
+
 }

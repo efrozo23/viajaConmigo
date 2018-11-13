@@ -17,7 +17,7 @@ import { User } from '../../Model/User';
 })
 export class WelcomePage {
 
-  private username: String;
+  
   private user: User;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
