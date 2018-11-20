@@ -26,6 +26,7 @@ export class WelcomePage {
 
   ionViewDidLoad() {
 
+    
     if (!localStorage.getItem("userLogin")) {
       console.log("Ingreso  ");
       

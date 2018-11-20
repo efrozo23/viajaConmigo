@@ -7,19 +7,23 @@ import { HomePage } from '../pages/home/home';
 import { GruposPage } from '../pages/grupos/grupos';
 
 import { UserDataPage } from '../pages/user-data/user-data';
-import { AllgroupsPage } from '../pages/allgroups/allgroups';
+
 import { RutaPage } from '../pages/ruta/ruta';
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HomePage;
+  
   @ViewChild(Nav) nav: Nav;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+    console.log("Entro aca");
+    
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+      console.log("Valor ", splashScreen.hide())
+      console.log("Valor de error ", statusBar.styleDefault())
       statusBar.styleDefault();
       splashScreen.hide();
     });
@@ -31,7 +35,8 @@ export class MyApp {
     this.nav.push(GruposPage) 
   }
   allgroups(){
-    this.nav.push(AllgroupsPage)
+    console.log("test");
+    
   }
   logOut(){
     localStorage.clear()

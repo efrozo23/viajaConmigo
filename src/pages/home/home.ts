@@ -35,6 +35,8 @@ export class HomePage {
     } else {
       navCtrl.setRoot(WelcomePage)
     }
+    console.log("Home");
+    
   }
   login() {
     console.log(this.form.value);
