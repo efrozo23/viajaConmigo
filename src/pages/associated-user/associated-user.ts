@@ -30,10 +30,12 @@ export class AssociatedUserPage {
     console.log("Datos de envio ", this.navParams.data);
 
     this.groupService.listUserByGroup(this.navParams.data.idgrupo).subscribe(r => {
+      console.log(r);
       if (r != false) {
+          console.log(r);
+          
           this.listUser = r;        
       }
-      console.log(this.listUser.length);
       
     })
   }
